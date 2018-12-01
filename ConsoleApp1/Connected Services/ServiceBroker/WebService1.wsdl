@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Broker_IncluirServidor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="servidor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Broker_IncluirServidorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Broker_IncluirServidorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Broker_ExcluirServidor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="servidor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Broker_ExcluirServidorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Broker_ExcluirServidorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Broker_ListarServidores">
+        <s:complexType />
+      </s:element>
+      <s:element name="Broker_ListarServidoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Broker_ListarServidoresResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Broker_BuscarServidor">
+        <s:complexType />
+      </s:element>
+      <s:element name="Broker_BuscarServidorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Broker_BuscarServidorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Broker_IncluirServidorSoapIn">
+    <wsdl:part name="parameters" element="tns:Broker_IncluirServidor" />
+  </wsdl:message>
+  <wsdl:message name="Broker_IncluirServidorSoapOut">
+    <wsdl:part name="parameters" element="tns:Broker_IncluirServidorResponse" />
+  </wsdl:message>
+  <wsdl:message name="Broker_ExcluirServidorSoapIn">
+    <wsdl:part name="parameters" element="tns:Broker_ExcluirServidor" />
+  </wsdl:message>
+  <wsdl:message name="Broker_ExcluirServidorSoapOut">
+    <wsdl:part name="parameters" element="tns:Broker_ExcluirServidorResponse" />
+  </wsdl:message>
+  <wsdl:message name="Broker_ListarServidoresSoapIn">
+    <wsdl:part name="parameters" element="tns:Broker_ListarServidores" />
+  </wsdl:message>
+  <wsdl:message name="Broker_ListarServidoresSoapOut">
+    <wsdl:part name="parameters" element="tns:Broker_ListarServidoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="Broker_BuscarServidorSoapIn">
+    <wsdl:part name="parameters" element="tns:Broker_BuscarServidor" />
+  </wsdl:message>
+  <wsdl:message name="Broker_BuscarServidorSoapOut">
+    <wsdl:part name="parameters" element="tns:Broker_BuscarServidorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="Broker_IncluirServidor">
+      <wsdl:input message="tns:Broker_IncluirServidorSoapIn" />
+      <wsdl:output message="tns:Broker_IncluirServidorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Broker_ExcluirServidor">
+      <wsdl:input message="tns:Broker_ExcluirServidorSoapIn" />
+      <wsdl:output message="tns:Broker_ExcluirServidorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Broker_ListarServidores">
+      <wsdl:input message="tns:Broker_ListarServidoresSoapIn" />
+      <wsdl:output message="tns:Broker_ListarServidoresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Broker_BuscarServidor">
+      <wsdl:input message="tns:Broker_BuscarServidorSoapIn" />
+      <wsdl:output message="tns:Broker_BuscarServidorSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Broker_IncluirServidor">
+      <soap:operation soapAction="http://tempuri.org/Broker_IncluirServidor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Broker_ExcluirServidor">
+      <soap:operation soapAction="http://tempuri.org/Broker_ExcluirServidor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Broker_ListarServidores">
+      <soap:operation soapAction="http://tempuri.org/Broker_ListarServidores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Broker_BuscarServidor">
+      <soap:operation soapAction="http://tempuri.org/Broker_BuscarServidor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Broker_IncluirServidor">
+      <soap12:operation soapAction="http://tempuri.org/Broker_IncluirServidor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Broker_ExcluirServidor">
+      <soap12:operation soapAction="http://tempuri.org/Broker_ExcluirServidor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Broker_ListarServidores">
+      <soap12:operation soapAction="http://tempuri.org/Broker_ListarServidores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Broker_BuscarServidor">
+      <soap12:operation soapAction="http://tempuri.org/Broker_BuscarServidor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="http://broker-4health.azurewebsites.net/WebService1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="http://broker-4health.azurewebsites.net/WebService1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
